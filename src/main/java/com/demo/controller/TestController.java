@@ -40,8 +40,8 @@ public class TestController {
         // Integer integer=testService.insertUser(user);
         return user;
     }
-//    @RequestMapping("/turnJsp")
-//    public String turnJsp(){
-//        return "login/login";
-//    }
+    @RequestMapping("/turnJsp")
+    public String turnJsp(){
+        return "login/login";
+    }
 }
