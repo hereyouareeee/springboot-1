@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * Created by huguoju on 2016/12/28.
  */
@@ -37,7 +39,15 @@ public class TestController {
             @ApiParam(name = "userCode", value = "用户id", required = true)
             @RequestParam Integer userCode) {
         User user = testService.selectByUserCode(userCode);
-        // Integer integer=testService.insertUser(user);
+        final User user1=User.builder()
+                .userCode(1111)
+                .isOldUser("1")
+                .userName("测试")
+                .userStyle(1)
+                .userType("1")
+                .createdDate(new Date())
+                .mobileNumber("18311111111").build();
+        testService.insertUser(user1);
         return user;
     }
     @RequestMapping("/turnJsp")
