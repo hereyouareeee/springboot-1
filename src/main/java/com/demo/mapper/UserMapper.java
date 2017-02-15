@@ -1,11 +1,16 @@
 package com.demo.mapper;
 
 import com.demo.model.User;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Results;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
-import org.springframework.stereotype.Repository;
 
-@Repository("userMapper")
 public interface UserMapper {
     @Delete({
         "delete from user",
@@ -33,6 +38,8 @@ public interface UserMapper {
     })
     int insert(User record);
 
+    @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
+    int insertSelective(User record);
 
     @Select({
         "select",
@@ -62,6 +69,8 @@ public interface UserMapper {
     })
     User selectByPrimaryKey(Integer userCode);
 
+    @UpdateProvider(type=UserSqlProvider.class, method="updateByPrimaryKeySelective")
+    int updateByPrimaryKeySelective(User record);
 
     @Update({
         "update user",
