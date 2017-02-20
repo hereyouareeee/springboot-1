@@ -50,8 +50,8 @@ public class TestController {
         testService.insertUser(user1);
         return user;
     }
-    @RequestMapping("/turnJsp")
-    public String turnJsp(){
-        return "login/login";
-    }
+//    @RequestMapping("/turnJsp")
+//    public String turnJsp(){
+//        return "login/login";
+//    }
 }
