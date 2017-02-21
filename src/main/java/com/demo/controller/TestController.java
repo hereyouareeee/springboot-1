@@ -43,7 +43,6 @@ public class TestController {
                 .userStyle(1)
                 .userType("1")
                 .createdDate(new Date())
-                .deviceId("1")
                 .mobileNumber("18311111111").build();
         testService.insertUser(user1);
         return user;
