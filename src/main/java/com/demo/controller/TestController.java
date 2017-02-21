@@ -52,6 +52,7 @@ public class TestController {
     }
      @RequestMapping("/turnJsp")
      public String turnJsp(){
+
          return "login/login";
      }
 }
