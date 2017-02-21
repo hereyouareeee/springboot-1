@@ -38,8 +38,6 @@ public interface UserMapper {
     })
     int insert(User record);
 
-    @InsertProvider(type=UserSqlProvider.class, method="insertSelective")
-    int insertSelective(User record);
 
     @Select({
         "select",
@@ -69,8 +67,6 @@ public interface UserMapper {
     })
     User selectByPrimaryKey(Integer userCode);
 
-    @UpdateProvider(type=UserSqlProvider.class, method="updateByPrimaryKeySelective")
-    int updateByPrimaryKeySelective(User record);
 
     @Update({
         "update user",
