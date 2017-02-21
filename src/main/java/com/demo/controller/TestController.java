@@ -51,7 +51,7 @@ public class TestController {
         return user;
     }
      @RequestMapping("/turnJsp")
-    
+     @ApiOperation("test")
      public String turnJsp(){
 
          return "login/login";
