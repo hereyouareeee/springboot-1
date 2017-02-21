@@ -50,8 +50,9 @@ public class TestController {
         testService.insertUser(user1);
         return user;
     }
-//     @RequestMapping("/turnJsp")
-//     public String turnJsp(){
-//         return "login/login";
-//     }
+    @ApiOperation("000")
+     @RequestMapping("/turnJsp")
+     public String turnJsp(){
+         return "login/login";
+     }
 }
