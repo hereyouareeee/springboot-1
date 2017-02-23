@@ -1,6 +1,7 @@
 package com.demo.model;
 
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -10,12 +11,13 @@ import java.util.Date;
 @Getter
 //@Data  =@Getter+@Setter
 public class User {
+    @ApiModelProperty("用户编码")
     private Integer userCode;
-
+    @ApiModelProperty("用户类型")
     private String userType;
-
+    @ApiModelProperty("用户名称")
     private String userName;
-
+    @ApiModelProperty("手机号")
     private String mobileNumber;
 
     private String deviceId;
