@@ -1,13 +1,11 @@
 package com.demo.controller;
 
-import com.demo.interceptor.Auth;
 import com.demo.model.User;
 import com.demo.service.TestService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +17,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("test")
 @Api(value = "测试类", tags = "测试接口")
-@Auth
+//@Auth
 public class TestController {
 
     /**
@@ -29,13 +27,14 @@ public class TestController {
     @Autowired
     private TestService testService;
 
+
     @RequestMapping(value = "testData", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = {RequestMethod.POST, RequestMethod.GET})
     @ApiOperation("测试读写分离、缓存")
     // @Cacheable(key = "'user:'.concat(#userCode)",value = "user")
     public User testDateSource(
             @ApiParam(name = "userCode", value = "用户id", required = true)
             @RequestParam Integer userCode) {
-        User user = testService.selectByUserCode(userCode);
+//        User user = testService.selectByUserCode(userCode);
         final User user1=User.builder()
                 .userCode(1111)
                 .isOldUser("1")
@@ -44,8 +43,8 @@ public class TestController {
                 .userType("1")
                 .createdDate(new Date())
                 .mobileNumber("18311111111").build();
-        testService.insertUser(user1);
-        return user;
+       // testService.insertUser(user1);
+        return user1;
     }
      @RequestMapping("/turnJsp")
      public String turnJsp(){

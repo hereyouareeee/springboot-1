@@ -84,6 +84,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--rabbitmq-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
 		<!-- druid阿里巴巴数据库连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -161,14 +166,14 @@
 			</plugin>
 		</plugins>
 		<!--如果用xml文件的话,编译时添加下面这段，打jar包时注释-->
-		<!--<resources>-->
-			<!--<resource>-->
-				<!--<directory>src/main/java</directory>-->
-				<!--<includes>-->
-					<!--<include>**/*.xml</include>-->
-				<!--</includes>-->
-			<!--</resource>-->
-		<!--</resources>-->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
 	</build>
 
 
