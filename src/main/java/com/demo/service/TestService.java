@@ -8,4 +8,5 @@ import com.demo.model.User;
 public interface TestService {
     User selectByUserCode(Integer userCode);
     Integer insertUser(User user);
+    void testTransaction() throws Exception;
 }

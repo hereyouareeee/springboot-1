@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ import java.util.Date;
 @RestController
 @RequestMapping("test")
 @Api(value = "测试类", tags = "测试接口")
-@Auth
+//@Auth
 public class TestController {
 
     /**
@@ -43,6 +44,8 @@ public class TestController {
                 .userStyle(1)
                 .userType("1")
                 .createdDate(new Date())
+                .updatedDate(new Date())
+                .isDeleted((short) 0)
                 .mobileNumber("18311111111").build();
         testService.insertUser(user1);
         return user;
@@ -51,5 +54,15 @@ public class TestController {
      public String turnJsp(){
 
          return "login/login";
+     }
+     @ApiOperation("测试事物")
+     @RequestMapping(value = "testTransaction",method = {RequestMethod.POST,RequestMethod.GET},produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+     public void testTransaction() throws Exception {
+
+         try{
+             testService.testTransaction();
+         }catch (Exception e){
+             System.out.println("失败："+e.getMessage());
+         }
      }
 }

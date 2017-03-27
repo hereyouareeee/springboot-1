@@ -3,14 +3,18 @@ package com.demo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@EnableScheduling
+//@EnableScheduling
 @Slf4j
+@ServletComponentScan  //开启Druid
+@EnableTransactionManagement
 public class SpringbootApplication {
 
 	@RequestMapping("/")
