@@ -1,6 +1,5 @@
 package com.demo.controller;
 
-import com.demo.interceptor.Auth;
 import com.demo.model.User;
 import com.demo.service.TestService;
 import io.swagger.annotations.Api;
@@ -36,7 +35,7 @@ public class TestController {
     public User testDateSource(
             @ApiParam(name = "userCode", value = "用户id", required = true)
             @RequestParam Integer userCode) {
-        User user = testService.selectByUserCode(userCode);
+//        User user = testService.selectByUserCode(userCode);
         final User user1=User.builder()
                 .userCode(1111)
                 .isOldUser("1")
