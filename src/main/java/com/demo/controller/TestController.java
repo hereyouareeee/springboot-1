@@ -36,7 +36,7 @@ public class TestController {
             @ApiParam(name = "userCode", value = "用户id", required = true)
             @RequestParam Integer userCode) {
 //        User user = testService.selectByUserCode(userCode);
-        final User user1=User.builder()
+        final User user=User.builder()
                 .userCode(1111)
                 .isOldUser("1")
                 .userName("测试")
@@ -46,7 +46,7 @@ public class TestController {
                 .updatedDate(new Date())
                 .isDeleted((short) 0)
                 .mobileNumber("18311111111").build();
-        testService.insertUser(user1);
+        testService.insertUser(user);
         return user;
     }
      @RequestMapping("/turnJsp")
